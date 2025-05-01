@@ -40,56 +40,37 @@ Borrow out = A'Bin + A'B + BBin
 
 **Procedure**
 
+Full Adder: 1.Open Quartus II and create a new project. 2.Use schematic design entry to draw the full adder circuit. 3.The circuit consists of XOR, AND, and OR gates. 4.Compile the design, verify its functionality through simulation. 5.Implement the design on the target device and program it.
 
+Full Subtractor: 1.Follow the same steps as for the full adder. 2.Draw the full subtractor circuit using schematic design. 3.The circuit includes XOR, AND, OR gates to perform subtraction. 4.Compile, simulate, implement, and program the design similarly to the full adder.
 
 **Program:**
-```
-module fulladder(a, b, c, sum, carry);
-    input a;
-    input b;
-    input c;
-    output sum;
-    output carry;
-	 reg sum,carry;
-	 reg t1,t2,t3;
-	 always @ (a or b or c) begin
-	 sum = (a^b)^c;
-	 t1=a & b;
-	 t2=b & c;
-	 t3=a & c;
-	 carry=(t1 | t2) | t3;
-	 end
-endmodule
-```
 
-```
-module fulsubbehavioral(a, b, cin, diff, borrow);
-    input a;
-    input b;
-    input cin;
-    output diff;
-    output borrow;
-	 reg t1,t2,t3;
-	 reg diff,borrow;
-	 reg abar;
-	 always @ (a or b or cin) begin
-	 abar= ~ a;
-	 diff = (a^b)^cin;
-	 t1=abar & b;
-	 t2=b & cin;
-	 t3=cin & abar;
-	 borrow=(t1 | t2) | t3;
-	 end
-	endmodule
-```
+Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. 
 
-**RTL Schematic**
-![8](https://github.com/user-attachments/assets/6b1ce971-8a3f-4c08-8c3a-520eda9d4b66)
-![9](https://github.com/user-attachments/assets/6ef67248-2cff-43b4-84f8-df9ed883fc77)
+Developed by: KISHORE V
+
+RegisterNumber: 212224240077
+
+**RTL Schematic** 
+
+*FULL ADDER*
+
+![434175859-92479cbd-8675-476c-ae60-134efc7395bd](https://github.com/user-attachments/assets/2b739e05-26c5-495a-8b33-9ae8d2f47a82)
+
+*FULL SUBTRACTOR*
+
+![434176026-ec764f25-2b5b-4c7b-9b1d-a401ad0fb293](https://github.com/user-attachments/assets/2396b4da-8140-40dd-b88c-d27e11d47c8c)
 
 **Output Timing Waveform**
-![10](https://github.com/user-attachments/assets/86383f43-7c92-40f6-b22e-c7e7001033ef)
-![11](https://github.com/user-attachments/assets/cdd05c20-5c57-4102-81bb-935889c2cdc7)
+
+*FULL ADDER*
+
+![434176199-5b8b0061-0e05-4cdd-8716-335644d0d045](https://github.com/user-attachments/assets/23e65f74-74b9-4ce4-9537-dccccf5b36c1)
+
+*FULL SUBTRACTOR*
+
+![434176245-a7b99ed6-4ae7-412a-8339-e5ee3bb387b6](https://github.com/user-attachments/assets/24089bec-7ecc-4d69-9adb-fdb45d3b8211)
 
 **Result:**
 
