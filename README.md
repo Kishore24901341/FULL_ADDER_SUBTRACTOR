@@ -40,16 +40,56 @@ Borrow out = A'Bin + A'B + BBin
 
 **Procedure**
 
-Write the detailed procedure here
+
 
 **Program:**
+```
+module fulladder(a, b, c, sum, carry);
+    input a;
+    input b;
+    input c;
+    output sum;
+    output carry;
+	 reg sum,carry;
+	 reg t1,t2,t3;
+	 always @ (a or b or c) begin
+	 sum = (a^b)^c;
+	 t1=a & b;
+	 t2=b & c;
+	 t3=a & c;
+	 carry=(t1 | t2) | t3;
+	 end
+endmodule
+```
 
-/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
-*/
+```
+module fulsubbehavioral(a, b, cin, diff, borrow);
+    input a;
+    input b;
+    input cin;
+    output diff;
+    output borrow;
+	 reg t1,t2,t3;
+	 reg diff,borrow;
+	 reg abar;
+	 always @ (a or b or cin) begin
+	 abar= ~ a;
+	 diff = (a^b)^cin;
+	 t1=abar & b;
+	 t2=b & cin;
+	 t3=cin & abar;
+	 borrow=(t1 | t2) | t3;
+	 end
+	endmodule
+```
 
 **RTL Schematic**
+![8](https://github.com/user-attachments/assets/6b1ce971-8a3f-4c08-8c3a-520eda9d4b66)
+![9](https://github.com/user-attachments/assets/6ef67248-2cff-43b4-84f8-df9ed883fc77)
 
 **Output Timing Waveform**
+![10](https://github.com/user-attachments/assets/86383f43-7c92-40f6-b22e-c7e7001033ef)
+![11](https://github.com/user-attachments/assets/cdd05c20-5c57-4102-81bb-935889c2cdc7)
 
 **Result:**
 
